@@ -1,0 +1,52 @@
+/* StudentList.css */
+
+/* Container styles */
+div {
+    margin: 20px;
+  }
+  
+  /* Table styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Table header styles */
+  th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* Table cell styles */
+  td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+  }
+  
+  /* Alternating row background color */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Hover effect on rows */
+  tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    th, td {
+      padding: 8px; /* Reduce padding for smaller screens */
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+  
+    /* Hide some columns for smaller screens if needed */
+    /* For example, hide the last two columns */
+    td:nth-last-child(-n+2), th:nth-last-child(-n+2) {
+      display: none;
+    }
+  }
+  
