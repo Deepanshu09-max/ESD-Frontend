@@ -1,37 +1,46 @@
-// StudentList.js
-import '../Styles/StudentList.css'
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios'
+import "../Styles/StudentList.css";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { fetchStudents } from "../utils/api";
 
 const StudentList = () => {
-  const { courseId } = useParams();
+  const { courseId } = useParams(); // Get courseId from URL params
   const [students, setStudents] = useState([]);
+  const navigate = useNavigate(); // Hook for navigation
 
+  // Fetch students data based on courseId
   useEffect(() => {
-    // Fetch students for the specific course using courseId
-
     const fetchData = async () => {
-
       try {
-        const response = await axios.get(`  /api/courses/${courseId}/students`);
-  
+        const response = await fetchStudents(courseId);
+
         if (!response.data) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
-  
+
         setStudents(response.data);
       } catch (error) {
-        // Handle error, e.g., log it or show a user-friendly message
-        console.error('Error fetching students:', error);
+        console.error("Error fetching students:", error);
       }
+    };
 
-    }
     fetchData();
   }, [courseId]);
 
+  const goBackToCourses = async () => {
+    navigate("/domain");
+  };
+
   return (
     <div>
+      {/* Cross button to close student list and go back */}
+      <button className="close-btn" onClick={goBackToCourses}>
+        &#10006; {/* HTML for cross symbol */}
+      </button>
+
+      {/* Navbar */}
+      <div className="navbar">Student List</div>
+
       <h1>Students in Course {courseId}</h1>
       <table>
         <thead>
@@ -43,7 +52,7 @@ const StudentList = () => {
           </tr>
         </thead>
         <tbody>
-          {students.map(student => (
+          {students.map((student) => (
             <tr key={student.id}>
               <td>{student.id}</td>
               <td>{student.name}</td>
@@ -55,7 +64,6 @@ const StudentList = () => {
       </table>
     </div>
   );
-
 };
 
 export default StudentList;

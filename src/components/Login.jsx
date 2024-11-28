@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -38,41 +37,45 @@ const Login = () => {
     }
   };
 
-  //   // Check credentials
-  //   if (email === "abc@gmail.com" && password === "1234") {
-  //     // Successful login
-  //     // Redirect to DomainList component
-  //     window.location.href = "/domainlist";
-  //   } else {
-  //     setErrorMessage("Invalid email or password");
-  //   }
-  // };
-
   return (
-    <div className="center-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <>
+      <div className="login-page"></div>
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <div className="login-container">
+        <div className="login-header">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4832/4832939.png"
+            alt="Profile Icon"
+            className="profile-icon"
+          />
+          <h2>Student Login</h2>
+        </div>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label htmlFor="email">Email ID:</label>
+          <input
+            type="text"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-    </div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
+    </>
   );
 };
 

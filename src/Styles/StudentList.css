@@ -1,52 +1,102 @@
-/* StudentList.css */
-
-/* Container styles */
+/* General Container styles */
 div {
-    margin: 20px;
-  }
-  
-  /* Table styles */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  /* Table header styles */
-  th {
-    background-color: #f2f2f2;
-    padding: 12px;
-    text-align: left;
-  }
-  
-  /* Table cell styles */
+  margin: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #007BFF;
+  /* Blue background for better contrast */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Cross button styles */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  color: #007BFF;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff4d4d;
+  /* Red color on hover */
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+}
+
+td {
+  border: 1px solid #dddddd;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* Alternating row background color */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 600px) {
+
+  th,
   td {
-    border: 1px solid #dddddd;
-    padding: 12px;
+    padding: 8px;
+    font-size: 14px;
   }
-  
-  /* Alternating row background color */
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+
+  td:nth-last-child(-n+2),
+  th:nth-last-child(-n+2) {
+    display: none;
   }
-  
-  /* Hover effect on rows */
-  tbody tr:hover {
-    background-color: #e0e0e0;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 600px) {
-    /* Adjust styles for smaller screens */
-    th, td {
-      padding: 8px; /* Reduce padding for smaller screens */
-      font-size: 14px; /* Adjust font size for smaller screens */
-    }
-  
-    /* Hide some columns for smaller screens if needed */
-    /* For example, hide the last two columns */
-    td:nth-last-child(-n+2), th:nth-last-child(-n+2) {
-      display: none;
-    }
-  }
-  
+}
+
+/* Heading styles */
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table,
+th,
+td {
+  border-radius: 8px;
+}
+
+table {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: center;
+}

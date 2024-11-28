@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Switch,
-} from "react-router-dom";
+}
+from "react-router-dom";
 import Login from "./components/Login";
 import DomainList from "./components/Domain";
 import StudentList from "./components/StudentList";
